@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cu5khe6ajuni0"]
+[gd_scene load_steps=32 format=3 uid="uid://cu5khe6ajuni0"]
 
 [ext_resource type="Texture2D" uid="uid://cn08rmn5aqcx3" path="res://sprites/icon.svg" id="1_cckxj"]
 [ext_resource type="Script" uid="uid://cdcq8oltqiq6t" path="res://scripts/player.gd" id="1_la7my"]
@@ -22,7 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://dlk08yxtcfxfr" path="res://sprites/explosion/frame_014_delay-0.01s.png" id="19_ldpur"]
 [ext_resource type="Texture2D" uid="uid://dvhioeug2dr13" path="res://sprites/explosion/frame_015_delay-0.01s.png" id="20_ofcra"]
 [ext_resource type="Texture2D" uid="uid://blkmfjmot2wlc" path="res://sprites/explosion/frame_016_delay-0.01s.png" id="21_7ggrj"]
-[ext_resource type="Script" uid="uid://ckphypcmucdnp" path="res://scenes/static_body_2d_2.gd" id="23_qxskg"]
+[ext_resource type="Script" uid="uid://c5tsk1ys0ml6c" path="res://scripts/explosion.gd" id="23_pm0jm"]
+[ext_resource type="Script" uid="uid://ckphypcmucdnp" path="res://scripts/enemy.gd" id="23_qxskg"]
+[ext_resource type="Script" uid="uid://dy37fgtj5p0js" path="res://scripts/jumpbar.gd" id="24_m3n77"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_la7my"]
 radius = 4.0
@@ -34,7 +36,7 @@ length = 1.13334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Explosion:texture")
+tracks/0/path = NodePath("Node/Explosion:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -46,7 +48,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Explosion:scale")
+tracks/1/path = NodePath("Node/Explosion:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -61,7 +63,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Explosion:texture")
+tracks/0/path = NodePath("Node/Explosion:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -73,7 +75,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Explosion:scale")
+tracks/1/path = NodePath("Node/Explosion:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -99,10 +101,6 @@ size = Vector2(1152, 99)
 [node name="Frog" type="CharacterBody2D" parent="."]
 collision_mask = 2
 script = ExtResource("1_la7my")
-
-[node name="Explosion" type="Sprite2D" parent="Frog"]
-z_index = 2
-scale = Vector2(0.805719, 0.724274)
 
 [node name="Frog" type="Sprite2D" parent="Frog"]
 position = Vector2(0, -1.90735e-06)
@@ -138,6 +136,23 @@ position_smoothing_speed = 15.0
 libraries = {
 &"": SubResource("AnimationLibrary_ac040")
 }
+
+[node name="jumpbar" type="ProgressBar" parent="Frog"]
+offset_left = 35.0
+offset_top = -19.0
+offset_right = 39.0
+offset_bottom = 19.0
+max_value = 2.5
+fill_mode = 3
+show_percentage = false
+script = ExtResource("24_m3n77")
+
+[node name="Node" type="Node" parent="Frog"]
+
+[node name="Explosion" type="Sprite2D" parent="Frog/Node"]
+z_index = 2
+scale = Vector2(0.805719, 0.724274)
+script = ExtResource("23_pm0jm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
