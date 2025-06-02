@@ -17,8 +17,8 @@ func _physics_process(delta: float) -> void:
 	if !gamestart:
 		gamestart = true
 		jumpy_jump()
-	
-	velocity.x = Input.get_axis("left", "right") * speed
+	if Input.get_axis("left", "right") != 0:
+		velocity.x = Input.get_axis("left", "right") * speed
 
 	var on_floor = is_on_floor()
 
