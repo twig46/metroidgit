@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://cu5khe6ajuni0"]
 
-[ext_resource type="Texture2D" uid="uid://cn08rmn5aqcx3" path="res://icon.svg" id="1_cckxj"]
-[ext_resource type="Script" uid="uid://cdcq8oltqiq6t" path="res://player.gd" id="1_la7my"]
-[ext_resource type="Shape2D" uid="uid://cqmqrh603jf5b" path="res://playerhitbox.tres" id="2_la7my"]
-[ext_resource type="Script" uid="uid://balohac28ua4h" path="res://attacks.gd" id="4_k4w0y"]
-[ext_resource type="Texture2D" uid="uid://dat6610dklmra" path="res://images-removebg-preview.png" id="5_af2tx"]
+[ext_resource type="Texture2D" uid="uid://cn08rmn5aqcx3" path="res://sprites/icon.svg" id="1_cckxj"]
+[ext_resource type="Script" uid="uid://cdcq8oltqiq6t" path="res://scripts/player.gd" id="1_la7my"]
+[ext_resource type="Shape2D" uid="uid://cqmqrh603jf5b" path="res://sprites/playerhitbox.tres" id="2_la7my"]
+[ext_resource type="Script" uid="uid://balohac28ua4h" path="res://scripts/attacks.gd" id="4_k4w0y"]
+[ext_resource type="Texture2D" uid="uid://dat6610dklmra" path="res://sprites/images-removebg-preview.png" id="5_af2tx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_la7my"]
 radius = 4.0
