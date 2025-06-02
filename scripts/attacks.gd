@@ -14,4 +14,4 @@ func _physics_process(delta: float) -> void:
 
 func _on_hit(body : Node2D):
 	if body.is_in_group("enemy"):
-		body.queue_free()
+		body.enemy_take_damage(10)

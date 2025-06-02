@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var gengravity := 1600.0
 @export var jumpgravity := 2000.0
 @export var bounce_force := 100.0
+@export var player_health := 100
 
 var is_running = true
 var gamestart = false
