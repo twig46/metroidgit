@@ -1,14 +1,92 @@
-[gd_scene load_steps=9 format=3 uid="uid://cu5khe6ajuni0"]
+[gd_scene load_steps=29 format=3 uid="uid://cu5khe6ajuni0"]
 
 [ext_resource type="Texture2D" uid="uid://cn08rmn5aqcx3" path="res://sprites/icon.svg" id="1_cckxj"]
 [ext_resource type="Script" uid="uid://cdcq8oltqiq6t" path="res://scripts/player.gd" id="1_la7my"]
 [ext_resource type="Shape2D" uid="uid://cqmqrh603jf5b" path="res://sprites/playerhitbox.tres" id="2_la7my"]
+[ext_resource type="Texture2D" uid="uid://co0nbqf4cggoq" path="res://sprites/explosion/frame_000_delay-0.01s.png" id="2_uk8aj"]
 [ext_resource type="Script" uid="uid://balohac28ua4h" path="res://scripts/attacks.gd" id="4_k4w0y"]
 [ext_resource type="Texture2D" uid="uid://dat6610dklmra" path="res://sprites/images-removebg-preview.png" id="5_af2tx"]
+[ext_resource type="Texture2D" uid="uid://ddblf0f3q14bm" path="res://sprites/explosion/frame_001_delay-0.01s.png" id="6_qxskg"]
+[ext_resource type="Texture2D" uid="uid://ct2xr513yi44j" path="res://sprites/explosion/frame_002_delay-0.01s.png" id="7_pm0jm"]
+[ext_resource type="Texture2D" uid="uid://dkehbmefa35su" path="res://sprites/explosion/frame_003_delay-0.01s.png" id="8_m3n77"]
+[ext_resource type="Texture2D" uid="uid://ddhdltx1pnjhm" path="res://sprites/explosion/frame_004_delay-0.01s.png" id="9_d0il0"]
+[ext_resource type="Texture2D" uid="uid://c0k1d8hw3chqn" path="res://sprites/explosion/frame_005_delay-0.01s.png" id="10_ata0h"]
+[ext_resource type="Texture2D" uid="uid://dlqb7ap7lq87q" path="res://sprites/explosion/frame_006_delay-0.01s.png" id="11_6s1j6"]
+[ext_resource type="Texture2D" uid="uid://d2x8ud20gxle1" path="res://sprites/explosion/frame_007_delay-0.01s.png" id="12_gpd42"]
+[ext_resource type="Texture2D" uid="uid://cwboyv4cwf858" path="res://sprites/explosion/frame_008_delay-0.01s.png" id="13_eh4hw"]
+[ext_resource type="Texture2D" uid="uid://br146lxfofj3y" path="res://sprites/explosion/frame_009_delay-0.01s.png" id="14_7pgrc"]
+[ext_resource type="Texture2D" uid="uid://dddwkbhjmp1nh" path="res://sprites/explosion/frame_010_delay-0.01s.png" id="15_ipory"]
+[ext_resource type="Texture2D" uid="uid://b5kuybxuraijc" path="res://sprites/explosion/frame_011_delay-0.01s.png" id="16_uxf27"]
+[ext_resource type="Texture2D" uid="uid://ddqlsj3yrn4e8" path="res://sprites/explosion/frame_012_delay-0.01s.png" id="17_621uo"]
+[ext_resource type="Texture2D" uid="uid://bsgyu5w1ba7iy" path="res://sprites/explosion/frame_013_delay-0.01s.png" id="18_85n28"]
+[ext_resource type="Texture2D" uid="uid://dlk08yxtcfxfr" path="res://sprites/explosion/frame_014_delay-0.01s.png" id="19_ldpur"]
+[ext_resource type="Texture2D" uid="uid://dvhioeug2dr13" path="res://sprites/explosion/frame_015_delay-0.01s.png" id="20_ofcra"]
+[ext_resource type="Texture2D" uid="uid://blkmfjmot2wlc" path="res://sprites/explosion/frame_016_delay-0.01s.png" id="21_7ggrj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_la7my"]
 radius = 4.0
 height = 112.0
+
+[sub_resource type="Animation" id="Animation_jbk6e"]
+resource_name = "Boom"
+length = 1.13334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explosion:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666667, 0.733333, 0.8, 0.866667, 0.933333, 1, 1.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_uk8aj"), ExtResource("6_qxskg"), ExtResource("7_pm0jm"), ExtResource("8_m3n77"), ExtResource("9_d0il0"), ExtResource("10_ata0h"), ExtResource("11_6s1j6"), ExtResource("12_gpd42"), ExtResource("13_eh4hw"), ExtResource("14_7pgrc"), ExtResource("15_ipory"), ExtResource("16_uxf27"), ExtResource("17_621uo"), ExtResource("18_85n28"), ExtResource("19_ldpur"), ExtResource("20_ofcra"), ExtResource("21_7ggrj")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explosion:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.431, 2.184)]
+}
+
+[sub_resource type="Animation" id="Animation_4qf6b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explosion:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explosion:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.805719, 0.724274)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ac040"]
+_data = {
+&"Boom": SubResource("Animation_jbk6e"),
+&"RESET": SubResource("Animation_4qf6b")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4w0y"]
 size = Vector2(1152, 99)
@@ -21,9 +99,13 @@ size = Vector2(1152, 99)
 collision_mask = 2
 script = ExtResource("1_la7my")
 
-[node name="Sprite2D" type="Sprite2D" parent="Frog"]
-position = Vector2(7.15256e-07, -1.46627e-05)
-scale = Vector2(0.541016, 0.486328)
+[node name="Explosion" type="Sprite2D" parent="Frog"]
+z_index = 2
+scale = Vector2(0.805719, 0.724274)
+
+[node name="Frog" type="Sprite2D" parent="Frog"]
+position = Vector2(0, -1.90735e-06)
+scale = Vector2(0.464844, 0.484375)
 texture = ExtResource("1_cckxj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Frog"]
@@ -48,6 +130,12 @@ scale = Vector2(0.21, 0.21)
 texture = ExtResource("5_af2tx")
 
 [node name="Camera2D" type="Camera2D" parent="Frog"]
+position_smoothing_enabled = true
+
+[node name="anim" type="AnimationPlayer" parent="Frog"]
+libraries = {
+&"": SubResource("AnimationLibrary_ac040")
+}
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2

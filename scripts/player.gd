@@ -47,6 +47,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func jumpy_jump():
+	var explode : bool
 	while true:
 		await get_tree().process_frame
 		if Input.is_action_just_pressed("jump"):
@@ -57,11 +58,19 @@ func jumpy_jump():
 			var held_duration = release_time - press_time
 			print("Jump held for:", held_duration, "seconds")
 			if held_duration < 0.3:
-				held_duration = 0.3
-			if held_duration > 1.0:
-				held_duration = 1.5
+				held_duration = 0.6
+			if held_duration > 3.0:
+				held_duration = 3
+				explode = true
 			if is_on_floor():
-				velocity.y = -jump_force * held_duration
+				velocity.y = -jump_force * held_duration / 2
+				if explode:
+					$anim.play("Boom")
+					await $anim.animation_finished
+					explode = false
+					$anim.play("RESET")
+			else:
+				explode = false
 			
 			
 
