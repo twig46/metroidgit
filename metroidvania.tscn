@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://cu5khe6ajuni0"]
+
+[ext_resource type="Texture2D" uid="uid://cn08rmn5aqcx3" path="res://icon.svg" id="1_cckxj"]
+[ext_resource type="Script" uid="uid://cdcq8oltqiq6t" path="res://player.gd" id="1_la7my"]
+[ext_resource type="Shape2D" uid="uid://cqmqrh603jf5b" path="res://playerhitbox.tres" id="2_la7my"]
+[ext_resource type="Script" uid="uid://balohac28ua4h" path="res://attacks.gd" id="4_k4w0y"]
+[ext_resource type="Texture2D" uid="uid://dat6610dklmra" path="res://images-removebg-preview.png" id="5_af2tx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_la7my"]
+radius = 4.0
+height = 112.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4w0y"]
+size = Vector2(1152, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_af2tx"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_mask = 2
+script = ExtResource("1_la7my")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(7.15256e-07, -1.46627e-05)
+scale = Vector2(0.541016, 0.486328)
+texture = ExtResource("1_cckxj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = ExtResource("2_la7my")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[node name="Attacks" type="Area2D" parent="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("4_k4w0y")
+
+[node name="Sword" type="CollisionShape2D" parent="CharacterBody2D/Attacks"]
+visible = false
+position = Vector2(56, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_la7my")
+disabled = true
+debug_color = Color(0.877427, 0.339139, 0.157544, 0.47451)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/Attacks"]
+z_index = 1
+position = Vector2(75, 0)
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("5_af2tx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 598.5)
+shape = SubResource("RectangleShape2D_k4w0y")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_top = 549.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." groups=["enemy"]]
+position = Vector2(842, 503)
+collision_layer = 4
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("1_cckxj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+scale = Vector2(3.135, 3.135)
+shape = SubResource("RectangleShape2D_af2tx")
+
+[connection signal="body_entered" from="CharacterBody2D/Attacks" to="CharacterBody2D/Attacks" method="_on_hit"]
