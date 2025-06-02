@@ -29,8 +29,6 @@ texture = ExtResource("1_cckxj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = ExtResource("2_la7my")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-
 [node name="Attacks" type="Area2D" parent="CharacterBody2D"]
 collision_mask = 6
 script = ExtResource("4_k4w0y")
@@ -48,6 +46,8 @@ z_index = 1
 position = Vector2(75, 0)
 scale = Vector2(0.21, 0.21)
 texture = ExtResource("5_af2tx")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
