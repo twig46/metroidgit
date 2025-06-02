@@ -19,7 +19,8 @@ func _physics_process(delta: float) -> void:
 		jumpy_jump()
 	if Input.get_axis("left", "right") != 0:
 		velocity.x = Input.get_axis("left", "right") * speed
-
+	elif is_on_floor():
+		velocity.x = 0
 	var on_floor = is_on_floor()
 
 	if not on_floor:
@@ -55,12 +56,12 @@ func jumpy_jump():
 			var release_time = Time.get_unix_time_from_system()
 			var held_duration = release_time - press_time
 			print("Jump held for:", held_duration, "seconds")
-			if held_duration < 0.4:
-				held_duration = 0.4
-			if held_duration > 3.0:
-				queue_free()
+			if held_duration < 0.3:
+				held_duration = 0.3
+			if held_duration > 1.0:
+				held_duration = 1.5
 			if is_on_floor():
-				velocity.y = -jump_force * clamp(held_duration, 0, 0.7)
+				velocity.y = -jump_force * held_duration
 			
 			
 

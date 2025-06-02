@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 		$Sprite2D.rotation = -mouse_vector.angle()
 		
 		if Input.is_action_just_pressed("dash"):
-			get_parent().velocity = Vector2(dash_speed,0).rotated(mouse_vector.angle())
+			get_parent().velocity = Vector2(dash_speed,10).rotated(mouse_vector.angle())
 			get_parent().move_and_slide()
 
 func _on_hit(body : Node2D):
