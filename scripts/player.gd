@@ -18,6 +18,8 @@ var jump_buffer : bool = false
 var bounce = true
 var held_duration : float = 0
 @onready var sword = $Attacks/Sword
+@onready var main = get_node("/root/Node2D")
+@onready var projectile = load("res://projectile.tscn")
 
 func _physics_process(delta: float) -> void:
 	# equivelant of _ready() technically redundant
@@ -59,7 +61,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			$Attacks.attack("sword", 1)
 	move_and_slide()
-	
 
 # jumps
 func jumpy_jump():
