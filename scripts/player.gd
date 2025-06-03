@@ -16,6 +16,7 @@ var was_on_floor = false
 var prev_velocity_y = 0.0
 var jump_buffer : bool = false
 var bounce = true
+var held_duration : float = 0
 @onready var sword = $Attacks/Sword
 
 func _physics_process(delta: float) -> void:
@@ -52,19 +53,17 @@ func _physics_process(delta: float) -> void:
 	prev_velocity_y = velocity.y
 	
 	# temporary sword
-	if Input.is_action_pressed("sword"):
-		sword.visible = true
-		sword.disabled = false
-	else:
-		sword.visible = false
-		sword.disabled = true
-
+	if Input.is_action_just_pressed("sword"):
+		if held_duration == 2.5:
+			$Attacks.attack("big_sword", 1.5)
+		else:
+			$Attacks.attack("sword", 1)
 	move_and_slide()
+	
 
 # jumps
 func jumpy_jump():
 	var explode : bool
-	var held_duration : float = 0
 	while true:
 		bounce = true
 		await get_tree().process_frame
@@ -75,12 +74,12 @@ func jumpy_jump():
 			while Input.is_action_pressed("jump"):
 				await get_tree().create_timer(0.1).timeout
 				held_duration += 0.1
+				held_duration = clamp(held_duration, 0, 2.5)
 				$jumpbar.value = held_duration
 			print("Jump held for:", held_duration, "seconds")
 			if held_duration < 1:
 				held_duration = 1
-			if held_duration > 2.5:
-				held_duration = 2.5
+			if held_duration == 2.5:
 				explode = true
 			if is_on_floor():
 				velocity.y = -jump_force * held_duration / 2

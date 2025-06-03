@@ -114,6 +114,8 @@ shape = ExtResource("2_la7my")
 [node name="Attacks" type="Area2D" parent="Frog"]
 collision_mask = 6
 script = ExtResource("4_k4w0y")
+dash_speed = null
+attack_damage = null
 
 [node name="Sword" type="CollisionShape2D" parent="Frog/Attacks"]
 position = Vector2(56, 0)
