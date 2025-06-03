@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cu5khe6ajuni0"]
+[gd_scene load_steps=33 format=3 uid="uid://cu5khe6ajuni0"]
 
 [ext_resource type="Texture2D" uid="uid://cn08rmn5aqcx3" path="res://sprites/icon.svg" id="1_cckxj"]
 [ext_resource type="Script" uid="uid://cdcq8oltqiq6t" path="res://scripts/player.gd" id="1_la7my"]
@@ -25,8 +25,7 @@
 [ext_resource type="Script" uid="uid://c5tsk1ys0ml6c" path="res://scripts/explosion.gd" id="23_pm0jm"]
 [ext_resource type="Script" uid="uid://ckphypcmucdnp" path="res://scripts/enemy.gd" id="23_qxskg"]
 [ext_resource type="Script" uid="uid://dy37fgtj5p0js" path="res://scripts/jumpbar.gd" id="24_m3n77"]
-[ext_resource type="Script" uid="uid://crccjh8w2ir5d" path="res://scenes/healthbar.gd" id="26_d0il0"]
-[ext_resource type="Script" uid="uid://utve4exxwqgm" path="res://scenes/projectile.gd" id="27_ata0h"]
+[ext_resource type="Script" uid="uid://crccjh8w2ir5d" path="res://scripts/healthbar.gd" id="26_d0il0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3n77"]
 radius = 29.0
@@ -38,7 +37,7 @@ length = 1.13334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node/Explosion:texture")
+tracks/0/path = NodePath("Independents/Explosion:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -50,7 +49,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Node/Explosion:scale")
+tracks/1/path = NodePath("Independents/Explosion:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -65,7 +64,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node/Explosion:texture")
+tracks/0/path = NodePath("Independents/Explosion:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -77,7 +76,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Node/Explosion:scale")
+tracks/1/path = NodePath("Independents/Explosion:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -92,9 +91,6 @@ _data = {
 &"Boom": SubResource("Animation_jbk6e"),
 &"RESET": SubResource("Animation_4qf6b")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0il0"]
-size = Vector2(43, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4w0y"]
 size = Vector2(1152, 99)
@@ -151,20 +147,12 @@ fill_mode = 3
 show_percentage = false
 script = ExtResource("24_m3n77")
 
-[node name="Node" type="Node" parent="Player"]
+[node name="Independents" type="Node" parent="Player"]
 
-[node name="Explosion" type="Sprite2D" parent="Player/Node"]
+[node name="Explosion" type="Sprite2D" parent="Player/Independents"]
 z_index = 2
 scale = Vector2(0.805719, 0.724274)
 script = ExtResource("23_pm0jm")
-
-[node name="ProjectileChar" type="CharacterBody2D" parent="Player"]
-script = ExtResource("27_ata0h")
-
-[node name="Projectile" type="CollisionShape2D" parent="Player/ProjectileChar"]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_d0il0")
-disabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
