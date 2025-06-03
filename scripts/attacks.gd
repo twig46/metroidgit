@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var dash_speed = 1000.0
-@export var attack_damage : float
+@export var attack_damage : float = 10
 
 func _physics_process(delta: float) -> void:
 		var mouse_pos = get_global_mouse_position()
@@ -32,6 +32,6 @@ func attack(attack, mult):
 		get_parent().held_duration = 0.0
 		$Sword.scale = Vector2(2,2)
 		await attack("sword", 1.5)
-		print(get_parent().held_duration)
+		print("held for:", get_parent().held_duration)
 		$Sword.scale = Vector2.ONE
 		

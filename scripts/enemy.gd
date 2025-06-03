@@ -8,6 +8,7 @@ func _ready():
 
 func enemy_take_damage(damage):
 	health -= damage
+	print(health)
 	$healthbar.value = health
 	if health < 1:
 		queue_free()
