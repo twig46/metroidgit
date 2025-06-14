@@ -1,7 +1,10 @@
 extends CharacterBody2D
 
 # define exportable variables
-@export var speed := 400.0
+@export var speed := 600.0
+@export var acceleration := 2000.0
+@export var friction := 1500.0
+@export var air_acceleration := 1000.0
 @export var jump_force := 1000.0
 @export var gengravity := 1600.0
 @export var jumpgravity := 2000.0
@@ -27,10 +30,15 @@ func _physics_process(delta: float) -> void:
 		jumpy_jump()
 		
 	# left-right movement with 0 ice physics
-	if Input.get_axis("left", "right") != 0:
-		velocity.x = Input.get_axis("left", "right") * speed
-	elif is_on_floor():
-		velocity.x = 0
+	var input_dir = Input.get_axis("left", "right")
+	if input_dir != 0:
+		if sign(velocity.x) != 0 and sign(velocity.x) != sign(input_dir):
+			velocity.x = input_dir * min(abs(velocity.x), speed) * 0.3
+		if abs(velocity.x) < speed:
+			velocity.x = move_toward(velocity.x, input_dir * speed, acceleration * delta)
+	else:
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x, 0, friction * delta)
 	var on_floor = is_on_floor()
 
 	# double gravity handling

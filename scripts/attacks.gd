@@ -1,6 +1,6 @@
 extends Area2D
 
-var projectile = preload("res://scenes/projectile.tscn")
+var projectile = preload("res://scenes/entities/projectile.tscn")
 @onready var player = get_parent()
 
 @export var dash_speed = 1000.0
