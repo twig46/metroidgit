@@ -7,10 +7,11 @@ var projectile = preload("res://scenes/projectile.tscn")
 @export var attack_damage : float = 10
 var bullet_speed = 200.0
 var newpro : Object
+var mouse_vector : Vector2
 
 func _physics_process(delta: float) -> void:
 		var mouse_pos = get_global_mouse_position()
-		var mouse_vector = mouse_pos - player.position
+		mouse_vector = mouse_pos - player.position
 		var cardinal_vector = Vector2(round(mouse_vector.normalized().x), round(mouse_vector.normalized().y))
 		rotation = cardinal_vector.angle()
 		$Sprite2D.rotation = -cardinal_vector.angle()
@@ -22,7 +23,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_hit(body : Node2D):
 	if body.is_in_group("enemy"):
-		body.enemy_take_damage(attack_damage)
+		body.enemy_take_damage(attack_damage, self)
 		attack_damage = 10
 
 func attack(attack, mult):
