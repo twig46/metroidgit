@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkv3pfbuynnue"]
 
-[ext_resource type="Script" uid="uid://ddegf8ma2siro" path="res://scenes/levels/enemyspawner.gd" id="1_mum8b"]
+[ext_resource type="Script" uid="uid://ddegf8ma2siro" path="res://scripts/enemyspawner.gd" id="1_mum8b"]
 [ext_resource type="Texture2D" uid="uid://biayolv48io4d" path="res://sprites/enemyspawner.png" id="3_l8nqy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7f7w"]

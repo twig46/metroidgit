@@ -24,12 +24,12 @@
 [ext_resource type="Texture2D" uid="uid://blkmfjmot2wlc" path="res://sprites/explosion/frame_016_delay-0.01s.png" id="23_df7e0"]
 [ext_resource type="Texture2D" uid="uid://dytbpcei63iv4" path="res://sprites/frog/frog2.png" id="23_rdtyy"]
 [ext_resource type="Script" uid="uid://dy37fgtj5p0js" path="res://scripts/jumpbar.gd" id="24_eja3n"]
-[ext_resource type="Script" uid="uid://b5u0wro4js3b4" path="res://scenes/levels/anim.gd" id="24_io860"]
+[ext_resource type="Script" uid="uid://b5u0wro4js3b4" path="res://scripts/anim.gd" id="24_io860"]
 [ext_resource type="Script" uid="uid://c5tsk1ys0ml6c" path="res://scripts/explosion.gd" id="25_wkd5o"]
 [ext_resource type="TileSet" uid="uid://cbi5o4ekadi82" path="res://tiletest.tres" id="27_rdtyy"]
 [ext_resource type="PackedScene" uid="uid://bkv3pfbuynnue" path="res://scenes/entities/enemyspawner.tscn" id="28_io860"]
 [ext_resource type="PackedScene" uid="uid://26qd6hg1m5qs" path="res://scenes/entities/enemy_1.tscn" id="29_6r5u8"]
-[ext_resource type="Script" uid="uid://b6lbwjprcqxr4" path="res://scenes/levels/enemysettings.gd" id="31_bmayf"]
+[ext_resource type="Script" uid="uid://b6lbwjprcqxr4" path="res://scripts/enemysettings.gd" id="31_bmayf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3n77"]
 radius = 29.0
