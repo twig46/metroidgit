@@ -24,6 +24,9 @@ var held_duration : float = 0
 @onready var main = get_node("/root/Node2D")
 
 func _physics_process(delta: float) -> void:
+	if position.y > 2000:
+		position = Vector2.ZERO
+	
 	# equivelant of _ready() technically redundant
 	if !gamestart:
 		gamestart = true

@@ -27,4 +27,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		if velocity.y >= 0:
 			velocity.y += gravity * delta
+	if position.y > 2000:
+		enemy_death.emit()
+		queue_free()
 	move_and_slide()
