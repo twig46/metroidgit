@@ -97,9 +97,7 @@ func jumpy_jump():
 			if is_on_floor():
 				velocity.y = -jump_force * held_duration / 2
 				if explode:
-					$anim.play("Boom")
-					await $anim.animation_finished
-					$anim.play("RESET")
+					$Independents/Explosion.play()
 				explode = false
 			else:
 				jump_buffer = true
