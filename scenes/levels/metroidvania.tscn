@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cu5khe6ajuni0"]
+[gd_scene load_steps=34 format=3 uid="uid://cu5khe6ajuni0"]
 
 [ext_resource type="Script" uid="uid://cdcq8oltqiq6t" path="res://scripts/player.gd" id="1_4sq5y"]
 [ext_resource type="Texture2D" uid="uid://cdy1toa5o5uaa" path="res://sprites/frog/frog1.png" id="2_vj4ci"]
@@ -98,6 +98,21 @@ tracks/2/keys = {
 "values": [ExtResource("2_vj4ci")]
 }
 
+[sub_resource type="Animation" id="Animation_vj4ci"]
+resource_name = "tongue"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Frog:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
 [sub_resource type="Animation" id="Animation_6r5u8"]
 resource_name = "Walking"
 length = 0.5
@@ -119,6 +134,7 @@ tracks/0/keys = {
 _data = {
 &"Boom": SubResource("Animation_jbk6e"),
 &"RESET": SubResource("Animation_4qf6b"),
+&"tongue": SubResource("Animation_vj4ci"),
 &"walk": SubResource("Animation_6r5u8")
 }
 
