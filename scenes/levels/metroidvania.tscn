@@ -216,6 +216,18 @@ frame = 16
 frame_progress = 1.0
 script = ExtResource("25_wkd5o")
 
+[node name="down" type="RayCast2D" parent="Player"]
+target_position = Vector2(0, 41)
+collision_mask = 2
+
+[node name="right" type="RayCast2D" parent="Player"]
+target_position = Vector2(35, 0)
+collision_mask = 2
+
+[node name="left" type="RayCast2D" parent="Player"]
+target_position = Vector2(-35, 0)
+collision_mask = 2
+
 [node name="tiles" type="Node2D" parent="."]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="tiles"]
@@ -227,12 +239,12 @@ tile_set = ExtResource("27_rdtyy")
 script = ExtResource("31_bmayf")
 enemy = ExtResource("29_6r5u8")
 amount = -1
+interval = 0.1
 offset = Vector2(0, -64)
-wait = true
 gridlocked = true
 stats = {
 "gravity": 1600,
-"health": 100,
+"health": 100000000000000,
 "knockback": 900
 }
 

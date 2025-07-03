@@ -9,6 +9,7 @@ signal enemy_death
 func _ready():
 	$healthbar.max_value = health
 	$healthbar.value = health
+	wall_check()
 
 func enemy_take_damage(damage, node: Node2D):
 	health -= damage
@@ -31,3 +32,9 @@ func _physics_process(delta):
 		enemy_death.emit()
 		queue_free()
 	move_and_slide()
+	
+func wall_check():
+	while true:
+		if $left.is_colliding() or $right.is_colliding():
+			velocity = Vector2.ZERO
+		await get_tree().create_timer(0.1).timeout

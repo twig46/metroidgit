@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		if is_on_floor():
 			velocity.x = move_toward(velocity.x, 0, friction * delta)
-	var on_floor = is_on_floor()
+	var on_floor = $down.is_colliding()
 
 	# double gravity handling
 	if not on_floor:

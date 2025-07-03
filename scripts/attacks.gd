@@ -12,9 +12,8 @@ var mouse_vector : Vector2
 func _physics_process(delta: float) -> void:
 		var mouse_pos = get_global_mouse_position()
 		mouse_vector = mouse_pos - player.position
-		var cardinal_vector = Vector2(round(mouse_vector.normalized().x), round(mouse_vector.normalized().y))
-		rotation = cardinal_vector.angle()
-		$Sprite2D.rotation = -cardinal_vector.angle()
+		rotation = mouse_vector.angle()
+		$Sprite2D.rotation = -mouse_vector.angle()
 		if Input.is_action_just_pressed("dash"):
 			player.velocity = Vector2(dash_speed,10).rotated(mouse_vector.angle())
 			player.move_and_slide()
