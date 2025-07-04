@@ -21,6 +21,10 @@ config/icon="res://sprites/icon.svg"
 fx="*res://scripts/fxmanager.gd"
 Global="*res://scripts/global.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/extedt/plugin.cfg")
+
 [global_group]
 
 enemy=""
