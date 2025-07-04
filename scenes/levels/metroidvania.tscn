@@ -155,7 +155,7 @@ animations = [{
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
 collision_mask = 2
 script = ExtResource("1_4sq5y")
 
@@ -241,10 +241,12 @@ enemy = ExtResource("29_6r5u8")
 amount = -1
 interval = 0.1
 offset = Vector2(0, -64)
+wait = true
 gridlocked = true
+collision = true
 stats = {
 "gravity": 1600,
-"health": 100000000000000,
+"health": 200,
 "knockback": 900
 }
 

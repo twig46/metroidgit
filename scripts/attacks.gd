@@ -44,6 +44,5 @@ func attack(attack, mult):
 		
 	elif attack == "projectile":
 		newpro = projectile.instantiate()
+		newpro.dir = mouse_vector.normalized()
 		player.get_node("Independents").add_child(newpro)
-		newpro.shoot(bullet_speed)
-		

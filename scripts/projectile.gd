@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-@onready var player = get_parent().get_parent()
+var dir : Vector2
+var speed = 1000
 
-func shoot(bullet_speed):
-	position = player.position
-	var mouse_pos = get_global_mouse_position()
-	var mouse_vector = mouse_pos - player.position
-	velocity = mouse_vector.normalized() * bullet_speed
-	await get_tree().create_timer(2).timeout
-	queue_free()
-	print("projectiled")
+func _ready():
+	position = Global.player.position
+	velocity = dir * speed
+	
+
+func _physics_process(delta):
+	move_and_slide()

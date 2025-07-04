@@ -19,10 +19,12 @@ config/icon="res://sprites/icon.svg"
 [autoload]
 
 fx="*res://scripts/fxmanager.gd"
+Global="*res://scripts/global.gd"
 
 [global_group]
 
 enemy=""
+player=""
 
 [input]
 
