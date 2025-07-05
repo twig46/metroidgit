@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_hit(body : Node2D):
 	if body.is_in_group("enemy"):
-		body.enemy_take_damage(attack_damage, self)
+		body.enemy_take_damage(attack_damage, mouse_vector.normalized())
 		attack_damage = 10
 
 func attack(attack, mult):

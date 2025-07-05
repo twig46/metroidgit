@@ -11,11 +11,10 @@ func _ready():
 	$healthbar.value = health
 	wall_check()
 
-func enemy_take_damage(damage, node: Node2D):
+func enemy_take_damage(damage, direction: Vector2):
 	health -= damage
 	print(health)
 	$healthbar.value = health
-	var direction = ((node.mouse_vector).normalized())
 	velocity += direction * knockback
 	fx.hit_flash(self, damage)
 	if health < 1:
@@ -36,5 +35,6 @@ func _physics_process(delta):
 func wall_check():
 	while true:
 		if $left.is_colliding() or $right.is_colliding():
-			velocity = Vector2.ZERO
+			pass
+			#velocity = Vector2.ZERO
 		await get_tree().create_timer(0.1).timeout
